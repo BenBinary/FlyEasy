@@ -30,6 +30,7 @@ public class Start extends JFrame {
 
 	private JPanel contentPane;
 	FlugVerwaltung verwaltung = new FlugVerwaltung();
+	JList listFlights = new JList();
 
 	/**
 	 * Launch the application.
@@ -70,17 +71,10 @@ public class Start extends JFrame {
 		verwaltung.add(new Flug("20190505", Destinations.FRA, Destinations.MIA, true));
 		verwaltung.add(new Flug("20190505", Destinations.MUC, Destinations.GRU, true));
 		
+		updateList();
 		
+	
 		
-		DefaultListModel<Flug> dlm = new DefaultListModel<>();
-		
-		
-		
-		
-		dlm.addElement(new Flug("MUC", "FRA"));
-		dlm.addElement(new Flug("KUL", "DNP"));
-		
-		JList listFlights = new JList(dlm);
 		listFlights.setBounds(15, 33, 405, 199);
 		
 		
@@ -132,9 +126,28 @@ public class Start extends JFrame {
 	
 	
 	public void updateList() {
-		List<Flug> fluege = verwaltung.getFluege();
 		
-		
+		if (verwaltung.deSer()) {
+			
+			
+			List<Flug> fluege = verwaltung.getFluege();
+			
+			DefaultListModel<Flug> dlm = new DefaultListModel<>();
+			
+			
+			
+			for (Flug f: fluege) {
+				
+				dlm.addElement(f);
+			}
+			
+			
+			listFlights = new JList(dlm);
+			
+			
+			
+		}
+	
 				
 	}
 }

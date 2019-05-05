@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import datenmodell.Destinations;
 import datenmodell.Flug;
+import datenmodell.FlugVerwaltung;
 
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -136,9 +137,12 @@ public class NewFlight extends JFrame {
 		
 			Flug flug = new Flug(cbDate.getSelectedItem().toString(), (Destinations)cbOrigin.getSelectedItem(), (Destinations)cbDest.getSelectedItem(), checkbox.isEnabled());
 			
+			FlugVerwaltung fw = new FlugVerwaltung();
 			
+			fw.add(flug);
+			System.out.println(fw.ser());
 			
-			flug.save();
+			//flug.save();
 				
 				
 			}
