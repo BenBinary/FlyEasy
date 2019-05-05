@@ -142,6 +142,8 @@ public class NewFlight extends JFrame {
 			fw.add(flug);
 			System.out.println(fw.ser());
 			
+			fw.ser();
+			
 			//flug.save();
 				
 				
