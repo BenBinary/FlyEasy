@@ -1,5 +1,6 @@
 package datenmodell;
 
+import java.io.FileOutputStream;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -46,11 +47,13 @@ public class Flug implements Serializable {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return startID + "--> " + landID;
+		return orgin + "--> " + destination;
 	}
 	
 	
 	public void save() {
+		
+		
 		
 		System.out.println("Es wird gespeichert");
 		

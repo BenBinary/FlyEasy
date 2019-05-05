@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datenmodell.Destinations;
 import datenmodell.Flug;
+import datenmodell.FlugVerwaltung;
 
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -20,9 +22,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
+import java.util.List;
+import java.util.LinkedList;
+
+
 public class Start extends JFrame {
 
 	private JPanel contentPane;
+	FlugVerwaltung verwaltung = new FlugVerwaltung();
 
 	/**
 	 * Launch the application.
@@ -56,10 +63,19 @@ public class Start extends JFrame {
 		JLabel lblBitteWhlenSie = new JLabel("Bitte w\u00E4hlen Sie einen Flug aus");
 		lblBitteWhlenSie.setBounds(5, 5, 440, 16);
 		contentPane.add(lblBitteWhlenSie);
+
+		
+		
+		verwaltung.add(new Flug("20190505", Destinations.FRA, Destinations.DTM, false));
+		verwaltung.add(new Flug("20190505", Destinations.FRA, Destinations.MIA, true));
+		verwaltung.add(new Flug("20190505", Destinations.MUC, Destinations.GRU, true));
 		
 		
 		
 		DefaultListModel<Flug> dlm = new DefaultListModel<>();
+		
+		
+		
 		
 		dlm.addElement(new Flug("MUC", "FRA"));
 		dlm.addElement(new Flug("KUL", "DNP"));
@@ -112,5 +128,13 @@ public class Start extends JFrame {
 		// System.out.println(listFlights.getSelectedValuesList().toString());
 		
 	
+	}
+	
+	
+	public void updateList() {
+		List<Flug> fluege = verwaltung.getFluege();
+		
+		
+				
 	}
 }
